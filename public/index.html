@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+  <!--[if lt IE 9]>
+  <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
+  <style>
+    #app .breadcrumb{
+      margin: auto;
+    }
+    #app ul{
+      margin: auto;
+      width: 40%;
+      margin-top: 2%;
+      list-style: none;
+      padding: 0;
+    }
+    #app ul li{
+      display: flex;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    #app div.bookmark-box{
+      display: inline-block;
+      text-align: center;
+      padding: 10px 10px;
+    }
+    #app div.bookmarkcount{
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+    }
+    #app div.user{
+      text-align: center;
+    }
+    #app h3{
+      margin: auto 10px;
+    }
+    #app h3 a{
+      font-size: 18px;
+    }
+    .fa-hatena:before {
+      content: "B!";
+      font-family: Verdana;
+      font-weight: 800;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="row center-block">
+        <ol class="breadcrumb col-md-8 col-md-offset-5">
+          <li class="breadcrumb-item">
+            <i class="fa-hatena"></i>
+            <a href="javascript:void(0);" v-on:click="all()">総合</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="social()">世の中</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="economics()">政治と経済</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="life()">暮らし</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="knowledge()">学び</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="it()">テクノロジー</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="fun()">おもしろ</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="entertainment()">エンタメ</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);" v-on:click="game()">アニメとゲーム</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <ul>
+      <li v-for="item in bookmark">
+        <div class="bookmark-box">
+          <div class="bookmarkcount">{{item['hatena:bookmarkcount']}}</div>
+          <div class="users">users</div>
+        </div> 
+        <h3>
+            <a :href="`${item.link}`" target="_blank">{{item.title}}</a>
+        </h3>
+      </li>
+    </ul>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
